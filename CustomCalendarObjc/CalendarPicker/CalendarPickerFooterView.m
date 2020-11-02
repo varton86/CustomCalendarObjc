@@ -151,15 +151,7 @@
 - (UIButton *)makeButton
 {
     BOOL smallDevice = UIScreen.mainScreen.bounds.size.width <= 350;
-    CGFloat fontPointSize;
-    if (smallDevice)
-    {
-        fontPointSize = 14;
-    }
-    else
-    {
-        fontPointSize = 17;
-    }
+    CGFloat fontPointSize = smallDevice ? 14 : 17;
 
     UIButton *button = [[UIButton alloc] init];
     button.translatesAutoresizingMaskIntoConstraints = false;

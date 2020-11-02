@@ -46,8 +46,8 @@
     calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     startDate = true;
     baseDate = [calendar startOfDayForDate:[NSDate date]];
-    startSelectedDate = [calendar startOfDayForDate:[NSDate date]];
-    endSelectedDate = [calendar startOfDayForDate:[NSDate date]];
+    startSelectedDate = baseDate;
+    endSelectedDate = baseDate;
     dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"d";
     
@@ -187,8 +187,7 @@
     Day *day = [[Day alloc] init];
     day.date = date;
     day.number = [dateFormatter stringFromDate:date];
-    day.isSelected =
-    ([date compare: startSelectedDate] == NSOrderedDescending || [date compare: startSelectedDate] == NSOrderedSame) &&
+    day.isSelected = ([date compare: startSelectedDate] == NSOrderedDescending || [date compare: startSelectedDate] == NSOrderedSame) &&
     ([date compare: endSelectedDate] == NSOrderedAscending || [date compare: endSelectedDate] == NSOrderedSame);
     day.isWithinDisplayedMonth = isWithinDisplayedMonth;
 
@@ -230,15 +229,7 @@
     for (NSUInteger index = 1; index < (numberOfDaysInMonth + offsetInInitialRow); index++)
     {
         BOOL isWithinDisplayedMonth = index >= offsetInInitialRow;
-        NSInteger dayOffset;
-        if (isWithinDisplayedMonth)
-        {
-            dayOffset = index - offsetInInitialRow ;
-        }
-        else
-        {
-            dayOffset = -(offsetInInitialRow - index);
-        }
+        NSInteger dayOffset = isWithinDisplayedMonth ? index - offsetInInitialRow : -(offsetInInitialRow - index);
         
         [days addObject:[self generateDayOffsetBy:dayOffset forBaseDate:firstDayOfMonth isWithinDisplayedMonth:isWithinDisplayedMonth]];
     }
