@@ -134,7 +134,7 @@
 {
     self.separatorView = [[UIView alloc] init];
     self.separatorView.translatesAutoresizingMaskIntoConstraints = false;
-    self.separatorView.backgroundColor = UIColor.blackColor;
+    self.separatorView.backgroundColor = UIColor.separatorColor;
 
     [self addSubview:self.separatorView];
 }
@@ -143,7 +143,7 @@
 {
     self.splitView = [[UIView alloc] init];
     self.splitView.translatesAutoresizingMaskIntoConstraints = false;
-    self.splitView.backgroundColor = UIColor.blackColor;
+    self.splitView.backgroundColor = UIColor.separatorColor;
 
     [self addSubview:self.splitView];
 }

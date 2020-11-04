@@ -119,7 +119,7 @@
         strongSelf->baseDate = date;
         [strongSelf setBase:date];
     }];
-    [self addSubview:self.headerView];
+    [self.contentView  addSubview:self.headerView];
 }
 
 - (void)configureFooterView
@@ -137,7 +137,7 @@
         __auto_type __strong strongSelf = weakSelf;
         strongSelf->startDate = false;
     }];
-    [self addSubview:self.footerView];
+    [self.contentView  addSubview:self.footerView];
 }
 
 - (void)configureCollectionView
@@ -154,7 +154,7 @@
     self.collectionView.delegate = self;
 
     [self.collectionView registerClass:[CalendarDateCollectionViewCell self] forCellWithReuseIdentifier:@"CellIdentifier"];
-    [self addSubview:self.collectionView];
+    [self.contentView  addSubview:self.collectionView];
 }
 
 - (void)setBase:(NSDate *)date

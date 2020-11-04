@@ -114,7 +114,7 @@
 {
     self.separatorView = [[UIView alloc] init];
     self.separatorView.translatesAutoresizingMaskIntoConstraints = false;
-    self.separatorView.backgroundColor = UIColor.blackColor;
+    self.separatorView.backgroundColor = UIColor.separatorColor;
 
     [self addSubview:self.separatorView];
 }
